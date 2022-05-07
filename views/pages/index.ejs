@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="indexStyles.css">
+    <title>Front-end Task</title>
+</head>
+<body>
+    <div class="first">
+        <div class="modify">
+            <div class="quantity">
+                <h2>Quantity</h2>
+                <input type="Number" min="0" id="Quantity" placeholder="Type here">
+            </div>          
+        </div>
+          <div class="object">
+           OBJ1
+          </div>
+    </div>
+    <div class="slots" id="slots">   
+    </div>
+    <div class="object" id="obj3">
+        OBJ3
+    </div>
+    <script>
+        let quantity= document.getElementById("Quantity");
+        quantity.addEventListener('input',(e)=>{fetch("/change/"+quantity.value, {method: "POST"})
+        .then((res)=>{res.text()
+            .then((r)=>{document.getElementById("slots").innerHTML=r})
+          }) 
+    })
+     </script>
+</body>
+</html>
